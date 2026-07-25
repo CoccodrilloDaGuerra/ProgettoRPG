@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="it.unicam.beastquest.ui.controllers.MainMenuController">
+
+
+    <padding>
+        <Insets top="50.0" bottom="50.0" left="50.0" right="50.0"/>
+    </padding>
+
+    <Label text="Beast Quest" style="-fx-font-size: 32px;  -fx-font-weight: bold;"/>
+
+    <Button fx:id="newGameButton" text="Nuova Partita" onAction="#handleNewGame" prefWidth="200.0"/>
+     <Button fx:id="loadGameButton" text="Carica Partita" onAction="#handleLoadGame" prefWidth="200.0"/>
+    <Button fx:id="exitButton" text="Esci" onAction="#handleExit" prefWidth="200.0"/>
+</VBox>
+
+
+
+
