@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<?import javafx.geometry.Insets?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx"
-      xmlns:fx="http://javafx.com/javafx"
-
-      fx:controller="it.unicam.beastquest.ui.controllers.HubController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.beastquest.ui.controllers.HubController">
 <padding>
 
-    <Insets top="50.0" bottom="50.0" left="50.0" right="50.0"/>
+    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
 
 </padding>
 
-<Label fx:id="welcomeLabel" text="Benvenuto" style="-fx-font-size: 24px; -fx-font-size: bold;"/>
+<Label fx:id="welcomeLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Benvenuto" />
 
-    <Button text="Vai in battaglia" onAction="#handleGoToBattle" prefWidth="200.0"/>
-    <Button text="Salva partita" onAction="#handleSaveGame"  prefWidth="200.0"/>
-    <Button text="Torna al Menu" onAction="#handleBackToMenu" prefWidth="200.0"/>
+    <Button onAction="#handleFightCommonEnemy" prefWidth="200.0" text="Cerca uno scontro" />
+    <Button fx:id="challengeBossButton" onAction="#handleFightBoss" prefWidth="200.0" text="Sfida il Boss" />
+    <Button onAction="#handleSaveGame" prefWidth="200.0"  />
+    <Button onAction="#handleBackToMenu" prefWidth="200.0" text="Torna al Menu" />
 
 
 </VBox>

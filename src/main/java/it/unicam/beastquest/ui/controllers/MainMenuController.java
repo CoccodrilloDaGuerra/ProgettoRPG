@@ -1,6 +1,7 @@
 package it.unicam.beastquest.ui.controllers;
 
 import it.unicam.beastquest.domain.combatant.Player;
+import it.unicam.beastquest.domain.item.Potion;
 import it.unicam.beastquest.domain.progress.GameProgress;
 import it.unicam.beastquest.domain.progress.SaveData;
 import it.unicam.beastquest.domain.progress.StoryChapter;
@@ -45,6 +46,7 @@ public class MainMenuController implements Initializable {
                     return;
                 }
                 Player player = new Player(name, 50, 50, 10, 5);
+                player.getInventory().addItem(new Potion("Pozione curativa","Ripristina un pò di Hp",15));
                 GameProgress progress = new GameProgress(StoryChapter.INTRO);
 
                 GameContext.setCurrentPlayer(player);

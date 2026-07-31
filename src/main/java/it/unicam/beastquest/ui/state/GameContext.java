@@ -2,6 +2,7 @@ package it.unicam.beastquest.ui.state;
 
 
 import it.unicam.beastquest.application.session.GameSession;
+import it.unicam.beastquest.domain.combatant.Enemy;
 import it.unicam.beastquest.domain.combatant.Player;
 import it.unicam.beastquest.domain.progress.GameProgress;
 import it.unicam.beastquest.persistence.JsonSaveRepository;
@@ -9,6 +10,7 @@ import it.unicam.beastquest.persistence.JsonSaveRepository;
 public class GameContext {
     private static Player currentPlayer;
     private static GameProgress currentProgress;
+    private static Enemy currentEnemy;
     private static  final GameSession gameSession= new GameSession(new JsonSaveRepository());
 
 
@@ -28,9 +30,20 @@ public class GameContext {
         return currentProgress;
     }
 
+    public static Enemy getCurrentEnemy(){
+        return currentEnemy;
+    }
+
+
+    public static void setCurrentEnemy(Enemy enemy){
+        currentEnemy=enemy;
+    }
+
+
     public static void setCurrentProgress(GameProgress progress){
         currentProgress=progress;
     }
+
 
     public  static GameSession getGameSession(){
         return gameSession;
