@@ -17,24 +17,24 @@
     </padding>
 
 
-    <Label fx:id="playerNameLabel" text="Player" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Label fx:id="playerNameLabel" text="Player" styleClass="player-name-label"/>
     <ProgressBar fx:id="playerHpBar" prefWidth="250.0"/>
     <Label fx:id="playerHpLabel" text="HP: 0/0"/>
 
 
     <Label text="VS" style="-fx-font-size: 20px"/>
 
-    <Label fx:id="enemyNameLabel" text="Enemy"  style="-fx-font-size: 14px; -fx-text-fill: #444;"/>
+    <Label fx:id="enemyNameLabel" text="Enemy"  styleClass="-enemy-name-label"/>
      <ProgressBar fx:id="enemyHpBar" prefWidth="250.0"/>
     <Label fx:id="enemyHpLabel" text="HP: 0/0"/>
 
-    <Label fx:id="messageLabel" text=" " wrapText="true" style="-fx-font-size: 14px; -fx-text -fill: #444"/>
+    <Label fx:id="messageLabel" text=" " wrapText="true" styleClass="message-label"/>
 
 <HBox alignment="CENTER" spacing="15.0">
 
-    <Button fx:id="attackButton" text="Attacca" onAction="#handleAttack" prefWidth="120.0"/>
-    <Button fx:id="useItemButton" text="Usa Oggetto" onAction="#handleUseItem" prefWidth="120.0"/>
-    <Button fx:id="fleeButton" text="Fuggi" onAction="#handleFlee" prefWidth="120.0"/>
+    <Button fx:id="attackButton" text="Attacca" onAction="#handleAttack" styleClass="attack-button" prefWidth="120.0"/>
+    <Button fx:id="useItemButton" text="Usa Oggetto" onAction="#handleUseItem" styleClass="item-button" prefWidth="120.0"/>
+    <Button fx:id="fleeButton" text="Fuggi" onAction="#handleFlee" styleClass="flee-button" prefWidth="120.0"/>
      <Button fx:id="returnToHubButton" text="Torna all'Hub" onAction="#handleReturnToHub"
              prefWidth="150.0" visible="false" managed="false"/>
 </HBox>

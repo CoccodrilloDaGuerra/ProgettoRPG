@@ -9,10 +9,16 @@ import java.io.IOException;
 
 public class SceneManager {
     private static Stage stage;
+    private static  final String  STYLESHEET_PAHT= "/it/unicam/beastquest/ui/css/style.css";
+
+
+
 
     private SceneManager(){
-        //classe di utilità non istanziabile
+
     }
+
+
 
     public static void initialize(Stage primaryStage){
         stage=primaryStage;
@@ -23,7 +29,11 @@ public class SceneManager {
             String path= "/it/unicam/beastquest/ui/views/" + viewName + ".fxml";
             FXMLLoader loader= new FXMLLoader(SceneManager.class.getResource(path));
             Parent root= loader.load();
-            stage.setScene(new Scene(root));
+
+            Scene scene= new Scene(root,650,500);
+            scene.getStylesheets().add(SceneManager.class.getResource(STYLESHEET_PAHT).toExternalForm());
+
+            stage.setScene(scene);
         } catch (IOException e){
             throw new RuntimeException("Impossibile caricare la vista: "+viewName,e);
         }

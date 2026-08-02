@@ -11,9 +11,9 @@
 
 </padding>
 
-<Label fx:id="welcomeLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Benvenuto" />
-<Label fx:id="playerHpLabel"  text="HP: 0/0" style="-fx-font-size: 16px"/>
-<Label fx:id="playerLevelLabel" text="Livello: 1" style="-fx-font-size: 16px"/>
+<Label fx:id="welcomeLabel" styleClass="welcolme-label;" text="Benvenuto" />
+<Label fx:id="playerHpLabel"  text="HP: 0/0" styleClass="player-hp-label"/>
+<Label fx:id="playerLevelLabel" text="Livello: 1" styleClass="player-level-label"/>
 
     <Button onAction="#handleFightCommonEnemy" prefWidth="200.0" text="Cerca uno scontro" />
     <Button fx:id="challengeBossButton" onAction="#handleFightBoss" prefWidth="200.0" text="Sfida il Boss" />

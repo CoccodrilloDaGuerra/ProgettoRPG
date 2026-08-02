@@ -1,0 +1,71 @@
+.root {
+    -fx-background-color: #1e1a17;
+    -fx-font-family: "Georgia", serif;
+}
+
+.label {
+    -fx-text-fill: #e8d9b5;
+}
+
+.title-label {
+    -fx-text-fill: #c9a63e;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #4a3728;
+    -fx-text-fill: #e8d9b5;
+    -fx-border-color: #c9a63e;
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-font-size: 13px;
+    -fx-padding: 8px 16px;
+}
+
+.button:hover {
+    -fx-background-color: #5c4632;
+}
+
+.attack-button {
+    -fx-background-color: #7a1f1f;
+    -fx-border-color: #c9a63e;
+}
+
+.attack-button:hover {
+    -fx-background-color: #932828;
+}
+
+.item-button {
+    -fx-background-color: #2f5233;
+    -fx-border-color: #c9a63e;
+}
+
+.item-button:hover {
+    -fx-background-color: #3d6b43;
+}
+
+.flee-button {
+    -fx-background-color: #8a6d1f;
+    -fx-border-color: #c9a63e;
+}
+
+.flee-button:hover {
+    -fx-background-color: #a8862a;
+}
+
+.progress-bar > .bar {
+    -fx-background-color: #4a8f4f;
+}
+
+.progress-bar > .track {
+    -fx-background-color: #3a2f28;
+}
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}

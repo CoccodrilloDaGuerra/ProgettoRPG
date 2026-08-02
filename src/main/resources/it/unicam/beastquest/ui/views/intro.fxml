@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.geometry.Insets?>
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafax"
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="it.unicam.beastquest.ui.controllers.IntroController">
 
@@ -16,10 +16,10 @@
         <Insets top="40.0" bottom="40.0" left="60.0" right="60.0"/>
     </padding>
 
-    <Label fx:id="titleLabel" text=" "  style="-fx-font-size: 26px; -fx-font-weight: bold"/>
+    <Label fx:id="titleLabel" text=" "  styleClass="title-label"/>
 
-    <ScrollPane fitToWidth="true" prefHeight="250.0">
-        <Label fx:id="storyLabel" text=" " wrapText="true" style="-fx-font-size: 15px; "/>
+    <ScrollPane fitToWidth="true" prefHeight="200.0">
+        <Label fx:id="storyLabel" text=" " wrapText="true" styleClass="story-label"/>
 
     </ScrollPane>
 
