@@ -5,17 +5,23 @@ import it.unicam.beastquest.domain.combatant.Enemy;
 import it.unicam.beastquest.domain.combatant.Player;
 import it.unicam.beastquest.domain.item.Item;
 import it.unicam.beastquest.domain.item.Potion;
+import it.unicam.beastquest.domain.progress.StoryChapter;
 import it.unicam.beastquest.ui.navigation.SceneManager;
 import it.unicam.beastquest.ui.state.GameContext;
+import it.unicam.beastquest.ui.util.AlertHelper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import it.unicam.beastquest.domain.progress.GameProgress;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.scene.control.Label;
+
+
+
 public class BattleController implements Initializable {
 
     @FXML private Label playerNameLabel;
@@ -35,14 +41,14 @@ public class BattleController implements Initializable {
     @FXML private Button fleeButton;
     @FXML private Button returnToHubButton;
 
-    private Player player= GameContext.getCurrentPlayer();
-    private Enemy enemy= GameContext.getCurrentEnemy();
+    private Player player;
+    private Enemy enemy;
    private final BattleEngine battleEngine= new BattleEngine();
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        Player player= GameContext.getCurrentPlayer();
-        Enemy enemy= GameContext.getCurrentEnemy();
+         player= GameContext.getCurrentPlayer();
+        enemy= GameContext.getCurrentEnemy();
 
         playerNameLabel.setText(player.getName());
         enemyNameLabel.setText(enemy.getName());
@@ -81,6 +87,7 @@ public class BattleController implements Initializable {
 
         if(result.isEnemyDefeated() || result.isPlayerDefeated()){
             endBattle(result);
+            checkChapterProgress();
         }
     }
 
@@ -100,7 +107,9 @@ public class BattleController implements Initializable {
 
         if(result.isEnemyDefeated() || result.isPlayerDefeated()){
             endBattle(result);
+            checkChapterProgress();
         }
+
     }
 
     @FXML
@@ -109,7 +118,7 @@ public class BattleController implements Initializable {
         messageLabel.setText(result.getMessage());
         updateUI();
 
-        if(result.isActionSucceded() || result.isEnemyDefeated()){
+        if(result.isActionSucceded() || result.isPlayerDefeated()){
             endBattle(result);
         }
     }
@@ -127,6 +136,18 @@ public class BattleController implements Initializable {
         }
         return null;
     }
+
+    private void checkChapterProgress(){
+        GameProgress progress=GameContext.getCurrentProgress();
+        boolean isWin= !enemy.isAlive() && !enemy.isBoss();
+
+        if(isWin && progress.getCurrentChapter()== StoryChapter.INTRO){
+            progress.advanceToNextChapter();
+            AlertHelper.showChapterAlert(progress.getCurrentChapter());
+        }
+    }
+
+
 
 
 }

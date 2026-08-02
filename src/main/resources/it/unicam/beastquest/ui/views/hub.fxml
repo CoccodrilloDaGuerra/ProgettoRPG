@@ -12,10 +12,12 @@
 </padding>
 
 <Label fx:id="welcomeLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" text="Benvenuto" />
+<Label fx:id="playerHpLabel"  text="HP: 0/0" style="-fx-font-size: 16px"/>
+<Label fx:id="playerLevelLabel" text="Livello: 1" style="-fx-font-size: 16px"/>
 
     <Button onAction="#handleFightCommonEnemy" prefWidth="200.0" text="Cerca uno scontro" />
     <Button fx:id="challengeBossButton" onAction="#handleFightBoss" prefWidth="200.0" text="Sfida il Boss" />
-    <Button onAction="#handleSaveGame" prefWidth="200.0"  />
+    <Button onAction="#handleSaveGame" prefWidth="200.0" text="Salva partita" />
     <Button onAction="#handleBackToMenu" prefWidth="200.0" text="Torna al Menu" />
 
 

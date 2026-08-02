@@ -2,9 +2,13 @@ package it.unicam.beastquest.ui.controllers;
 
 import it.unicam.beastquest.application.battle.EnemyFactory;
 import it.unicam.beastquest.domain.combatant.Enemy;
+import it.unicam.beastquest.domain.combatant.Player;
+import it.unicam.beastquest.domain.progress.GameProgress;
 import it.unicam.beastquest.domain.progress.SaveData;
+import it.unicam.beastquest.domain.progress.StoryChapter;
 import it.unicam.beastquest.ui.navigation.SceneManager;
 import it.unicam.beastquest.ui.state.GameContext;
+import it.unicam.beastquest.ui.util.AlertHelper;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.net.URL;
@@ -14,22 +18,38 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 
+
+
 public class HubController implements Initializable {
     @FXML
     private Label welcomeLabel;
+    @FXML
+    private Label playerHpLabel;
 
     @FXML
     private Button challengeBossButton;
+    @FXML
+    private Label playerLevelLabel;
 
     private final EnemyFactory enemyFactory= new EnemyFactory();
+    private Player player= GameContext.getCurrentPlayer();
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String name= GameContext.getCurrentPlayer().getName();
-        welcomeLabel.setText("Benvenuto, "+ name+ "!");
 
-        boolean bossAvailable= enemyFactory.isBossAvailable(GameContext.getCurrentPlayer(),
-                GameContext.getCurrentProgress());
+       applyRestRecovery();
+
+
+        String name= GameContext.getCurrentPlayer().getName();
+        welcomeLabel.setText("Benvenuto, "+player.getName()+ "!");
+        playerHpLabel.setText("HP: "+ player.getCurrentHp() + "/"+ player.getMaxHp());
+        playerLevelLabel.setText("Livello: "+player.getLevel());
+
+        checkChapterProgress();
+
+
+        boolean bossAvailable= enemyFactory.isBossAvailable(player, GameContext.getCurrentProgress());
 
         challengeBossButton.setVisible(bossAvailable);
         challengeBossButton.setManaged(bossAvailable);
@@ -65,7 +85,31 @@ public class HubController implements Initializable {
         SceneManager.switchTo("main-menu");
     }
 
+private void checkChapterProgress(){
+    GameProgress progress= GameContext.getCurrentProgress();
+    boolean bossAvailable= enemyFactory.isBossAvailable(GameContext.getCurrentPlayer(),progress);
 
+    if(bossAvailable && progress.getCurrentChapter()== StoryChapter.MID_GAME){
+        progress.advanceToNextChapter();
+        AlertHelper.showChapterAlert(progress.getCurrentChapter());
+
+    }
+}
+
+
+
+
+private static final double REST_RECOVERY_PERCENTAGE=0.3;
+
+
+    private void applyRestRecovery(){
+        int missingHp=player.getMaxHp()- player.getCurrentHp();
+        int recoveredAmount= (int) (missingHp * REST_RECOVERY_PERCENTAGE);
+
+        if(recoveredAmount>0){
+            player.heal(recoveredAmount);
+        }
+    }
 
 
 }

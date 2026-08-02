@@ -32,29 +32,7 @@ public class MainMenuController implements Initializable {
     @FXML
 
     private void handleNewGame(){
-    TextInputDialog dialog= new TextInputDialog();
-    dialog.setTitle("Nuovo eroe");
-    dialog.setHeaderText("Crea il tuo personaggio");
-    dialog.setContentText("Inserisci il nome: ");
-
-
-    Optional<String> result= dialog.showAndWait();
-
-
-    result.ifPresent(name -> {
-                if (name.isBlank()) {
-                    return;
-                }
-                Player player = new Player(name, 50, 50, 10, 5);
-                player.getInventory().addItem(new Potion("Pozione curativa","Ripristina un pò di Hp",15));
-                GameProgress progress = new GameProgress(StoryChapter.INTRO);
-
-                GameContext.setCurrentPlayer(player);
-                GameContext.setCurrentProgress(progress);
-
-                SceneManager.switchTo("hub");
-            }
-    );
+      SceneManager.switchTo("intro");
 
     }
 
