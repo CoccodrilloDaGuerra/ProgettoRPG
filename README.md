@@ -3,11 +3,11 @@ Demo di un RPG a turni sviluppato in Java, con interfaccia grafica JavaFx, proge
 
 ## Descrizione
 Beast Quest è un piccolo gioco di ruolo, in cui il giocatore impersona un eroe che deve affrontare mostri comuni e un boss finale,
-in un regno colpito dagli effetti del potere del un mago malvagio Caius, che ha generato mostri che terrorizzano il regno.
+in un regno colpito dagli effetti del potere del mago malvagio Caius, che ha dato origine a bestie mostruose.
 Il progetto è stato sviluppato come esercizio di progettazione software, con attenzione alla separazione dei layer e all'estendibilità futura.
 
 ## Funzionalità
-- Combattimento a turni (Attacca/ Usa Oggetto / Fugggi)
+- Combattimento a turni (Attacca/ Usa Oggetto / Fuggi)
 - Sistema con punti esperienza e level up
 - Inventario con oggetti utilizzabili (pozioni per ora) e da collezione (trofei)
 - Avanzamento narrativo a capitoli, con testo descrittivo per ciascuno di essi
@@ -24,18 +24,21 @@ Il progetto è stato sviluppato come esercizio di progettazione software, con at
 ## Come avviare il progetto
 Prerequisiti: JDK 25 installato
 
-## Istruzioni
-git clone +url-del-repository tra tag
+### Clona il repository
+```bash
+git clone https://github.com/CoccodrilloDaGuerra/ProgettoRPG.git
+cd ProgettoRPG
+```
 
-cd + nome-della-cartella tra tag
-
-## Build del progetto  
-  bash
-  ./gradlew buid
+## Build del progetto
+ ``` bash
+  ./gradlew build
+```
 
 ## Esecuzione
- bash
+``` bash
  ./gradlew run
+```
 
 ## Architettura
 Il progetto è organizzato in layer, seguendo il principio di dependency inversion:
@@ -54,28 +57,29 @@ garantendo che la logica di gioco resti testabile e indipendente dai dettagli di
 ## Principi SOLID applicati (alcuni esempi)
 - **SRP**: 'BattleEngine' orchestra il combattimento, ma la logica delle singole azioni (attacco,usa oggetto,fuga) è delegata a classi
   'Action' separate
-  
+
 -**OCP**: aggiungere una nuova funzione di combattimento richiede solo una nuova classe che implmenta 'Action', senza modificare
-  'BattleEngine'
-  
+'BattleEngine'
+
 -**DIP**: 'GameSession' dipende dall'interfaccia 'SaveRepository', non dalla sua implementazione concreta (JsonSaveRepository),
-  rendendo il sistema di salvataggio sostituibile.
-  
--**LSP**: 'Player' ed 'Enemy' esetendono 'AbstractCombatant' senza sovrascrivere il comportamento dei metodi ereditati, aggiungendo
-  solo funzionalità proprie- questo garantisce che ogni 'Combatant' sia intercambiabile nel codice di combattimento,
-  indipendentemente dal tipo concreto
+rendendo il sistema di salvataggio sostituibile.
+
+-**LSP**: 'Player' ed 'Enemy' estendono 'AbstractCombatant' senza sovrascrivere il comportamento dei metodi ereditati, aggiungendo
+solo funzionalità proprie- questo garantisce che ogni 'Combatant' sia intercambiabile nel codice di combattimento,
+indipendentemente dal tipo concreto
 
 ## Uso di strumenti di Intelligenza Artificiale
 
 Durante lo sviluppo del progetto è stato utilizzato Claude come supporto a:
 
-- Progettazione Archittetturale (organizzazione in layer,scelta di desing patter,dependency injection manuale)
+- Progettazione Architetturale (organizzazione in layer,scelta di desing patter,dependency injection manuale)
 - Revisione del codice  e individuazione di bug
-- Chiarimenti su concetti Java/Javafx e sui prinicipi SOLID/clean code
+- Chiarimenti su concetti Java/Javafx e sui principi SOLID/clean code
 - Debug di errori runtime in particolare relativi alla configurazione Gradle/JavaFx e al caricamento di risorse
 
-La stesura del codice, le scelte di game design, la narrazione e la 
+La stesura del codice, le scelte di game design, la narrazione e la
 struttura finale del progetto sono opera dell'autore.
 
 ## Autore
 Diego Sannipoli
+
