@@ -54,4 +54,14 @@ public class JsonSaveRepository implements SaveRepository{
     public boolean saveExists() {
         return Files.exists(Path.of(SAVE_FILE_PATH));
     }
+
+
+    @Override
+    public void deleteSave() {
+        try{
+            Files.deleteIfExists(Path.of(SAVE_FILE_PATH));
+        }catch (IOException e){
+            throw new RuntimeException("Errore durante l'eliminazione del salvataggio", e);
+        }
+    }
 }

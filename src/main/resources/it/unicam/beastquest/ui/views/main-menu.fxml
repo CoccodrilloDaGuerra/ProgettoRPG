@@ -23,6 +23,7 @@
     <Button fx:id="newGameButton" text="Nuova Partita" onAction="#handleNewGame" prefWidth="200.0"/>
      <Button fx:id="loadGameButton" text="Carica Partita" onAction="#handleLoadGame" prefWidth="200.0"/>
     <Button fx:id="exitButton" text="Esci" onAction="#handleExit" prefWidth="200.0"/>
+    <Button fx:id="deleteSaveButton" text="Cancella Salvataggio" onAction="#handleDeleteSave" prefWidth="200.0" styleClass="flee-button"/>
 </VBox>
 
 

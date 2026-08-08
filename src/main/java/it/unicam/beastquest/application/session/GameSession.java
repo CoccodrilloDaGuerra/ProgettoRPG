@@ -26,4 +26,8 @@ public class GameSession {
     public boolean hasSavedGame(){
         return saveRepository.saveExists();
     }
+
+    public void deleteSave(){
+        saveRepository.deleteSave();
+    }
 }

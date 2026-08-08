@@ -14,6 +14,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
@@ -76,6 +77,12 @@ public class HubController implements Initializable {
     private void handleSaveGame(){
         SaveData saveData= new SaveData(GameContext.getCurrentPlayer(),GameContext.getCurrentProgress());
         GameContext.getGameSession().saveGame(saveData);
+
+        Alert alert=new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Partita Salvata");
+        alert.setTitle(null);
+        alert.setContentText("La tua avventura è stata salvata con successo.");
+        alert.showAndWait();
     }
 
 

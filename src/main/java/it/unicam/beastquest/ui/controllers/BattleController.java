@@ -75,6 +75,19 @@ public class BattleController implements Initializable {
         useItemButton.setDisable(true);
         fleeButton.setDisable(true);
 
+        if(result.isPlayerDefeated()){
+            messageLabel.setText(messageLabel.getText()
+            +"\n\nSei stato sconfitto, ma riesci a fuggire e a tornare al villaggio per riprenderti. ");
+
+        }else if(result.isEnemyDefeated()&& enemy.isBoss()){
+            messageLabel.setText(messageLabel.getText() +"\n\nHai sconfitto "+ enemy.getName()+"! Hai ottenuto un frammento" +
+                    "del potere di Caius");
+        } else if (result.isEnemyDefeated()) {
+            messageLabel.setText(messageLabel.getText()
+                    +"\n\nHai vinto lo scontro");
+        }
+
+
         returnToHubButton.setVisible(true);
         returnToHubButton.setManaged(true);
 
