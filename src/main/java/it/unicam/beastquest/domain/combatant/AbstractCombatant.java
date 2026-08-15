@@ -1,7 +1,14 @@
 package it.unicam.beastquest.domain.combatant;
 
 
-
+/**
+ * Implementazione base di {@link Combatant}, condivisa da {@link Player}
+ * ed {@link Enemy}. Centralizza la logica comune a ogni combattente
+ * (calcolo e applicazione del danno, cura, controllo dello stato in vita),
+ * lasciando alle sottoclassi solo l'aggiunta di attributi e comportamenti
+ * specifici, senza mai alterare il comportamento dei metodi qui definiti
+ * (Liskov Substitution Principle).
+ */
 public  abstract class AbstractCombatant implements Combatant {
   protected String name;
   protected int currentHp;
@@ -9,6 +16,16 @@ public  abstract class AbstractCombatant implements Combatant {
   protected int attackPower;
   protected int defense;
 
+
+    /**
+     *
+     * @param name nome del combattente
+     * @param currentHp HP correnti, compresi tra 0 e {@code maxHp}
+     * @param maxHp HP massimi, deve essere positivo
+     * @param attackPower potenza d'attacco, non negativa
+     * @param defense difesa, non negativa
+     * @throws IllegalArgumentException se uno dei parametri non rispetta i vincoli
+     */
   protected AbstractCombatant(String name,int currentHp,int maxHp,int attackPower,int defense){
           if(name==null||name.isEmpty()|| maxHp<=0||attackPower<0||defense<0
           ||currentHp<0||currentHp>maxHp){
@@ -46,6 +63,12 @@ public  abstract class AbstractCombatant implements Combatant {
         return defense;
     }
 
+    /**
+     * {@inheritDoc}
+     * il danno netto è calcolato come {@code amount - defesne}, con un
+     * minimo di zero: una difesa superiore all'attacco subito annulla
+     * il danno, ma non può mai curare il combattente
+     */
     @Override
     public int takeDamage(int amount) {
       if(amount<0){

@@ -13,17 +13,39 @@ public class SceneManager {
 
 
 
-
+    /**
+     * Gestisce il caricamento e il cambio delle schermate (viste FXML)
+     * dell'applicazione, centralizzando l'accesso allo {@link Stage} principale.
+     *
+     * Ogni vista è identificata da un nome semplice (ad esempio {@code "hub"}),
+     * corrispondente a un file FXML nella cartella {@code ui/views} delle risorse.
+     * Applica automaticamente il foglio di stile condiviso a ogni scena caricata.
+     */
     private SceneManager(){
 
     }
 
 
-
+    /**
+     * Inizializza il gestore con lo stage principale dell'applicazione.
+     * Va chiamato una sola volta, all'avvio.
+     *
+     * @param primaryStage lo stage principale fornito da JavaFX
+     */
     public static void initialize(Stage primaryStage){
         stage=primaryStage;
     }
 
+
+    /**
+     * Carica la vista inidcata e la imposta come scena corrente.
+     *
+     *
+     * @param viewName nome della vista corrispondente
+     * al file {@code <viewName>.fxml} nella cartella delle viste
+     *
+     * @throws RuntimeException se la vista non può essere caricata
+     */
     public static void switchTo(String viewName){
         try {
             String path= "/it/unicam/beastquest/ui/views/" + viewName + ".fxml";
