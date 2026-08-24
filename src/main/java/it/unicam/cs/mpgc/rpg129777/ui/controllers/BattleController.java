@@ -78,7 +78,7 @@ public class BattleController implements Initializable {
 
         if(result.isPlayerDefeated()){
             messageLabel.setText(messageLabel.getText()
-            +"\n\nSei stato sconfitto, ma riesci a fuggire e a tornare al villaggio per riprenderti. ");
+            +"\n\nHai perso, ma riesci a fuggire e a tornare al villaggio per riprenderti. ");
 
         }else if(result.isEnemyDefeated()&& enemy.isBoss()){
             messageLabel.setText(messageLabel.getText() +"\n\nHai sconfitto "+ enemy.getName()+"! Hai ottenuto un frammento" +

@@ -43,7 +43,7 @@ public class HubController implements Initializable {
 
 
         String name= GameContext.getCurrentPlayer().getName();
-        welcomeLabel.setText("Benvenuto, "+player.getName()+ "!");
+        welcomeLabel.setText("Ciao, "+player.getName()+ "!");
         playerHpLabel.setText("HP: "+ player.getCurrentHp() + "/"+ player.getMaxHp());
         playerLevelLabel.setText("Livello: "+player.getLevel());
 
