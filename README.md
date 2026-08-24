@@ -72,7 +72,7 @@ indipendentemente dal tipo concreto
 
 Durante lo sviluppo del progetto è stato utilizzato Claude come supporto a:
 
-- Progettazione Architetturale (organizzazione in layer,scelta di desing patter,dependency injection manuale)
+- Progettazione Architetturale (organizzazione in layer, dependency injection manuale)
 - Revisione del codice  e individuazione di bug
 - Chiarimenti su concetti Java/Javafx e sui principi SOLID/clean code
 - Debug di errori runtime in particolare relativi alla configurazione Gradle/JavaFx e al caricamento di risorse
