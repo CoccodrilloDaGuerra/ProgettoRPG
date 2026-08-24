@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicam.cs.mpgc.rpg129777.ui.controllers.HubController">
+<padding>
+
+    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+
+</padding>
+
+<Label fx:id="welcomeLabel" styleClass="welcolme-label;" text="Benvenuto" />
+<Label fx:id="playerHpLabel"  text="HP: 0/0" styleClass="player-hp-label"/>
+<Label fx:id="playerLevelLabel" text="Livello: 1" styleClass="player-level-label"/>
+
+    <Button onAction="#handleFightCommonEnemy" prefWidth="200.0" text="Cerca uno scontro" />
+    <Button fx:id="challengeBossButton" onAction="#handleFightBoss" prefWidth="200.0" text="Sfida il Boss" />
+    <Button onAction="#handleSaveGame" prefWidth="200.0" text="Salva partita" />
+    <Button onAction="#handleBackToMenu" prefWidth="200.0" text="Torna al Menu" />
+
+
+</VBox>

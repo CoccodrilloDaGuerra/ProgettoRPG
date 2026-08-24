@@ -25,7 +25,7 @@ javafx{
     modules= listOf("javafx.controls", "javafx.fxml")
 }
 application{
-    mainClass.set("it.unicam.beastquest.Main")
+    mainClass.set("it.unicam.cs.mpgc.rpg129777.Main")
 }
 
 dependencies {
